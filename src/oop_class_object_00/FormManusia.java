@@ -33,6 +33,10 @@ public class FormManusia extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnTampil = new javax.swing.JButton();
         txtKeterangan = new javax.swing.JLabel();
+        btnTampil1 = new javax.swing.JButton();
+        btnTampil2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        spnUmur = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +57,24 @@ public class FormManusia extends javax.swing.JFrame {
             }
         });
 
+        btnTampil1.setText("Tampil Data 1");
+        btnTampil1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTampil1ActionPerformed(evt);
+            }
+        });
+
+        btnTampil2.setText("Tampil Data 2");
+        btnTampil2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTampil2ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Umur");
+
+        spnUmur.setModel(new javax.swing.SpinnerNumberModel(17, 17, 100, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,18 +82,27 @@ public class FormManusia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(txtKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(btnTampil)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnTampil1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnTampil2))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnTampil)
+                            .addComponent(spnUmur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(txtKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,11 +116,18 @@ public class FormManusia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(26, 26, 26)
-                .addComponent(btnTampil)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(spnUmur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTampil1)
+                    .addComponent(btnTampil)
+                    .addComponent(btnTampil2))
+                .addGap(18, 18, 18)
                 .addComponent(txtKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,6 +143,19 @@ public class FormManusia extends javax.swing.JFrame {
         String ket = "Nama : "+manusia1.getNama()+" Alamat : "+ manusia1.getAlamat();
         txtKeterangan.setText(ket);
     }//GEN-LAST:event_btnTampilActionPerformed
+
+    private void btnTampil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampil1ActionPerformed
+        manusia1.inputData(txtNama.getText(),txtAlamat.getText());
+        String ket = "Nama : "+manusia1.getNama()+" Alamat : "+ manusia1.getAlamat();
+        txtKeterangan.setText(ket);
+    }//GEN-LAST:event_btnTampil1ActionPerformed
+
+    private void btnTampil2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampil2ActionPerformed
+        Integer u = (Integer) spnUmur.getValue();
+        manusia1.inputData(txtNama.getText(),txtAlamat.getText(),u);
+        String ket = "Nama : "+manusia1.getNama()+" Alamat : "+ manusia1.getAlamat()+" Umur : "+ manusia1.getUmur();
+        txtKeterangan.setText(ket);
+    }//GEN-LAST:event_btnTampil2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,8 +195,12 @@ public class FormManusia extends javax.swing.JFrame {
     Manusia manusia1 = new Manusia();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTampil;
+    private javax.swing.JButton btnTampil1;
+    private javax.swing.JButton btnTampil2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSpinner spnUmur;
     private javax.swing.JTextField txtAlamat;
     private javax.swing.JLabel txtKeterangan;
     private javax.swing.JTextField txtNama;
